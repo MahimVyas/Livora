@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Rentals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Explore Listings</h2>
+        <a href="user.html">Dashboard</a>
+        <a href="search.html">Search</a>
+        <a href="add-listing.html" class="owner-only">Add Listing</a>  <!-- 🔹 Hidden for non-owners -->
+        <a href="login.html" class="logout-btn" id="logoutBtn">Logout</a>
+    </header>
+
+<div class="content explore-container">
+    <h3>Discover Available Rentals</h3>
+    <p>Browse available hostels, PGs, and flats near you.</p>
+
+   <!-- ✅ Slideshow with Sliding Images & Description -->
+<div class="slideshow-container">
+    <div class="slide active">
+        <img src="https://qph.cf2.quoracdn.net/main-qimg-ec7a76cf62c63aeaece14b79299cac63-lq" alt="Scenic Room">
+        <div class="slide-caption">
+            <h3>Book Smart</h3>
+            <p>"Verified Hostels. Trusted by Students."</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="https://websiteupload.s3.ap-south-1.amazonaws.com/media/2024/07/66115bc1d6be29.webp" alt="Scenic House">
+        <div class="slide-caption">
+            <h3>Live Easy</h3>
+            <p>“No Brokers, No Hassles - Just Rooms.”</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="https://yashshelters.com/img/home/slider2.jpg" alt="Luxury Car">
+        <div class="slide-caption">
+            <h3>Just Rooms. Nothing Complicated.</h3>
+            <p>“Your Stay, Your Way.”</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="https://content.jdmagicbox.com/comp/pune/k9/020pxx20.xx20.230816141457.e3k9/catalogue/sujay-pg-pune-i5lou1w9jd.jpg" alt="Futuristic Home">
+        <div class="slide-caption">
+            <h3>Home Like</h3>
+            <p>“Simple. Secure. Student-Friendly.”</p>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+    <div id="exploreListings" class="listings-grid"></div>
+</div>
+<div id="listingDetailsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Listing Details</h3>
+        <img id="modalImage" src="" alt="Property Image">
+        <h4 id="modalPropertyType"></h4>
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+        <p><strong>Rent:</strong> ₹<span id="modalRent"></span>/month</p>
+        <p><strong>Owner:</strong> <span id="modalOwner"></span></p>
+        <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+        <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+    </div>
+</div>
+
+<script src="script.js" type="module"></script>
+</body>
+</html>

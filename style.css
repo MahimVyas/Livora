@@ -1,0 +1,769 @@
+
+/* ✅ General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ✅ Background for Login & Register Pages */
+body.auth-page {
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+/* ✅ Dark Background for Other Pages */
+body {
+    background: url('https://www.toptal.com/designers/subtlepatterns/uploads/dark_embroidery.png') repeat;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ✅ Login & Register Container */
+.auth-container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background: white;
+    /* backdrop-filter: blur(25px); */
+    padding: 15px 0;
+    text-align: center;
+    color: #000000; /* Changed to black */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+header h1 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    color: #302b63;
+    font-size: 3rem;
+}
+
+header h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+header a {
+    color: black; /* Black text for better contrast */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    color: deeppink;
+    text-decoration: underline;
+}
+
+/* Glassmorphism Container */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in-out;
+    color: #000000; /* Ensuring text inside is black */
+}
+
+/* Login & Register Containers */
+.login-container,
+.register-container {
+    background: white;
+    color: black;
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in-out;
+    color: #000000; /* Black text */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading Styles */
+.login-container h2,
+.register-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: black; /* Black heading */
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.input-group label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #000000; /* Label text black */
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    color: #000000; /* Black text inside input */
+}
+
+.input-field::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Light black placeholder */
+}
+
+.input-field:focus {
+    border-color: #000000;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #000000, #4f4f4f);
+    color: #ffffff; /* White text for contrast */
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #4f4f4f, #000000);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Login Button - Gradient Style */
+.login-btn {
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    justify-self: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.login-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ✅ Register Button - Gradient Style */
+.register-btn {
+    background-image: linear-gradient(to right, #ff7eb3 0%, #ff758c 51%, #ff7eb3 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.register-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+/* Responsive Design */
+@media (max-width: 500px) {
+    .login-container,
+    .register-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+/* Form Layout */
+.login-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+}
+
+#email , #password ,#username{
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    color: #000000; /* Black text */
+    margin-bottom: 15px;
+}
+.new-usr {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.new-usr a {
+    color: black;
+    text-decoration: underline;
+    &:hover {
+        color: rgb(0, 149, 255);
+    }
+}
+
+.usr-mode {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* ✅ Slideshow Container */
+.slideshow-container {
+    width: 100%;
+    max-width: 1100px;
+    width: 700px;
+    height: 400px;
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: -350px;
+}
+
+/* ✅ Slideshow Slides */
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);  /* Start off-screen */
+    transition: transform 0.5s ease-out, opacity 0.6s ease-out;
+}
+
+/* ✅ Show Active Slide */
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);  /* Slide into view */
+}
+
+/* ✅ Hide Previous Slide */
+.slide.prev {
+    opacity: 0.5;
+    transform: translateX(-100%);  /* Move left and fade out */
+}
+
+/* ✅ Image */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ✅ Caption Box */
+.slide-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* ✅ Caption Title */
+.slide-caption h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ✅ Caption Description */
+.slide-caption p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.explore-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    gap: 20px;
+    width: 100%;
+    color: white;
+    background-color: transparent;
+}
+/* ✅ Add Listing Page */
+.add-listing-container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 10rem;
+}
+
+.add-listing-container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.add-listing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.add-listing-form label {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.add-listing-form select,
+.add-listing-form textarea,
+.add-listing-form input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-listing-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.add-listing-form input:focus,
+.add-listing-form textarea:focus,
+.add-listing-form select:focus {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.add-listing-form input::placeholder,
+.add-listing-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ✅ Image Upload Preview */
+#imagePreview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#imagePreview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid white;
+}
+
+/* ✅ Submit Button */
+.add-listing-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-listing-form button:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ✅ Responsive */
+@media (max-width: 500px) {
+    .add-listing-container {
+        width: 90%;
+        padding: 30px;
+    }
+}
+.dashboard-container {
+    max-width: 1200px;
+    margin: 150px;
+    padding: 20px;
+    text-align: center;
+}
+
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    justify-content: center;
+    margin-top: 250px;
+    width: 100%;
+    max-width: 1200px
+}
+
+.listing-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px;
+}
+
+.listing-card:hover {
+    transform: scale(1.05);
+}
+
+.listing-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.listing-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing-card p {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.listing-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00ff88;
+    margin-top: 10px;
+}
+
+.listing-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.listing-card:hover {
+    transform: scale(1.05);
+}
+
+.listing-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.listing-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing-card p {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.listing-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00ff88;
+    margin-top: 10px;
+}
+
+.search-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 130px;
+    z-index: 10;
+}
+
+.logout-btn {
+    background-image: linear-gradient(to right, #000000 0%, #e74c3c 51%, #000000 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: inline-block;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-btn ,.view-details-btn , .book-btn {
+    background-image: linear-gradient(to right, #00c6ff 0%, #0072ff 51%, #00c6ff 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /* box-shadow: 0 0 20px #eee; */
+    border-radius: 10px;
+    display: inline-block;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-btn:hover ,.view-details-btn:hover , .book-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tagline h1 {
+    font-family: fantasy;
+    font-size: 4rem;
+}
+
+.listing-details-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: black;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+}
+
+.listing-details-section img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.listing-details-section .close-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.listing-details-section .close-btn:hover {
+    background: #c0392b;
+}
+
+.alerts {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 1000px;
+    max-width: 75%;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: rgb(255, 0, 55);
+    text-decoration: none;
+    cursor: pointer;
+    scale: 1.5;
+}
+
+#modalDescription {
+    color: white;
+}
+
+#modalImage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+}
