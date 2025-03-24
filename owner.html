@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Welcome, Owner</h2>
+        <a href="add-listing.html">Add Property</a>
+        <a href="explore.html">Explore</a>
+        <a href="#" class="logout-btn" id="logoutBtn">Logout</a>
+    </header>
+
+    <div class="content container">
+        <h2>Your Properties</h2>
+        <p>Add and manage your rental listings here.</p>
+    </div>
+    <div id="listingDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Listing Details</h3>
+            <img id="modalImage" src="" alt="Property Image">
+            <h4 id="modalPropertyType"></h4>
+            <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+            <p><strong>Rent:</strong> ₹<span id="modalRent"></span>/month</p>
+            <p><strong>Owner:</strong> <span id="modalOwner"></span></p>
+            <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+            <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Livora</h3>
+                <p>Livora is a seamless rental platform connecting tenants with trusted property owners. Whether you're looking for a cozy home, a PG, or a shared space, we simplify the search process with verified listings and hassle-free interactions.</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="dashboard.html">Home</a></li>
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@livora.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Location: Pune, India</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Livora. All Rights Reserved.</p>
+            <a href="terms.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
