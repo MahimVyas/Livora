@@ -107,7 +107,6 @@ header a:hover {
     max-width: 400px;
     animation: fadeIn 0.5s ease-in-out;
     color: #000000; /* Black text */
-    margin-top: 150px;
 }
 @keyframes fadeIn {
     from {
@@ -755,13 +754,15 @@ header a:hover {
     position: fixed;
     margin-top: 150px;
     margin-bottom: 150px;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%); /* ✅ Perfect centering */
-    padding: 35px;
+    padding: 50px;
     border: 1px solid #888;
-    width: 1000px;
-    max-width: 75%;
+    width: 85%;
+    max-width: 95%;
+    max-height: 70vh;
+    overflow: auto;
     border-radius: 10px;
     color: white;
     z-index: 15;
@@ -880,7 +881,10 @@ footer {
     margin-bottom: 10px;
 }
 
-.explore-container {
-    margin-top: 100px;
-    /* display: block; */
+.master-container {
+    margin-top: 200px;
+    @media screen and (max-width: 768px) {
+        margin-top: 650px;
+
+    }
 }
