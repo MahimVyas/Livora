@@ -107,6 +107,7 @@ header a:hover {
     max-width: 400px;
     animation: fadeIn 0.5s ease-in-out;
     color: #000000; /* Black text */
+    margin-top: 150px;
 }
 @keyframes fadeIn {
     from {
