@@ -360,6 +360,9 @@ async function deleteListing(listingId) {
     }
 }
 
+
+
+
 function setupSearch() {
     const searchBtn = document.querySelector(".search-btn");
     const clearBtn = document.querySelector(".clear-filters-btn");
@@ -367,15 +370,13 @@ function setupSearch() {
     const propertyTypeFilter = document.querySelector(".property-type-filter");
     const listingsContainer = document.getElementById("exploreListings");
 
-    if (!searchBtn || !clearBtn || !searchInput || !propertyTypeFilter || !listingsContainer) {
+    if (!searchBtn || !clearBtn || !searchInput || !listingsContainer) {
         console.error("⚠️ Required elements not found.");
         return;
     }
 
-    searchBtn.addEventListener("click", async () => {
-        const searchQuery = searchInput.value.trim().toLowerCase();
-        const selectedPropertyType = propertyTypeFilter.value;
-
+    // ✅ Fetch Listings Function
+    async function fetchListings(searchQuery = "", selectedPropertyType = "") {
         listingsContainer.innerHTML = `<p class="alert">Loading listings...</p>`;
 
         try {
@@ -388,7 +389,7 @@ function setupSearch() {
                 const matchesLocation = searchQuery ? listing.location.toLowerCase().includes(searchQuery) : true;
                 const matchesPropertyType = selectedPropertyType ? listing.propertyType === selectedPropertyType : true;
 
-                if (matchesLocation && matchesPropertyType) { 
+                if (matchesLocation && matchesPropertyType) {
                     foundResults = true;
 
                     const listingCard = document.createElement("div");
@@ -396,7 +397,7 @@ function setupSearch() {
                     listingCard.setAttribute("data-id", doc.id);
 
                     listingCard.innerHTML = `
-                        <img src="${  'https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg' || listing.imageUrl}" alt="Property Image">
+                        <img src="${'https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'}" alt="Property Image">
                         <h3>${listing.propertyType}</h3>
                         <p><strong>Location:</strong> ${listing.location}</p>
                         <p class="price">₹${listing.rent}/month</p>
@@ -415,32 +416,21 @@ function setupSearch() {
             console.error("❌ Error retrieving listings:", error);
             listingsContainer.innerHTML = `<p class="alert">Error retrieving listings.</p>`;
         }
+    }
+
+    // ✅ Event Listeners
+    searchBtn.addEventListener("click", () => {
+        fetchListings(searchInput.value.trim().toLowerCase(), propertyTypeFilter?.value || "");
     });
 
-    // 🔹 Clear filters functionality
     clearBtn.addEventListener("click", () => {
         searchInput.value = "";
-        propertyTypeFilter.value = "";
-        listingsContainer.innerHTML = "";
-    });
-}
-
-    // 🔹 Search Function
-    searchBtn.addEventListener("click", function () {
-        const searchQuery = searchInput.value.trim().toLowerCase();
-        const selectedPropertyType = propertyTypeFilter.value;
-        fetchListings(searchQuery, selectedPropertyType);
-    });
-
-    // 🔹 Clear Filters Function (Shows all listings)
-    clearBtn.addEventListener("click", function () {
-        searchInput.value = "";
-        propertyTypeFilter.value = "";
+        if (propertyTypeFilter) propertyTypeFilter.value = "";
         fetchListings(); // 🔥 Fetch all listings when cleared
     });
 
     // ✅ Fix "View Details" Issue - Use Event Delegation
-    listingsContainer.addEventListener("click", function (event) {
+    listingsContainer.addEventListener("click", (event) => {
         if (event.target.classList.contains("view-details-btn")) {
             const listingId = event.target.getAttribute("data-id");
             if (listingId) {
@@ -451,6 +441,10 @@ function setupSearch() {
 
     // ✅ Load all listings on page load
     fetchListings();
+}
+
+
+
 
 
 // ✅ Initialize Search on Page Load
