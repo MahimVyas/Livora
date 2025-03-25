@@ -42,7 +42,7 @@ header {
     justify-content: space-around;
     width: 100%;
     background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(20px);
     padding: 15px 0;
     text-align: center;
     color: #000000; /* Changed to black */
@@ -96,7 +96,7 @@ header a:hover {
     color: black;
     padding: 40px;
     border-radius: 15px;
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -587,7 +587,7 @@ header a:hover {
 
 .search-container {
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(35px);
     color: white;
     padding: 10px;
     border-radius: 10px;
