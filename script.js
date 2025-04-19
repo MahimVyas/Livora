@@ -1,26 +1,26 @@
 // Import Firebase Services
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-import { 
-    getAuth, 
-    createUserWithEmailAndPassword, 
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut 
+    signOut
 } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-import { 
-    getFirestore, 
-    collection, 
-    addDoc, 
-    getDocs, 
-    doc, 
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
     getDoc,
     updateDoc,
     deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
-import { 
-    getStorage, 
-    ref, 
-    uploadBytes, 
-    getDownloadURL 
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
 
 // Firebase Configuration
@@ -78,7 +78,7 @@ function setupLogin() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             sessionStorage.setItem("userType", userType);
             sessionStorage.setItem("userId", userCredential.user.uid);
-            
+
             // Toggle visibility of owner links
             toggleOwnerOptions(userType);
 
@@ -115,11 +115,11 @@ function setupRegister() {
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await addDoc(collection(db, "users"), { 
-                uid: userCredential.user.uid, 
-                username, 
-                email, 
-                userType 
+            await addDoc(collection(db, "users"), {
+                uid: userCredential.user.uid,
+                username,
+                email,
+                userType
             });
             alert("✅ Account created successfully! Redirecting to login...");
             setTimeout(() => window.location.href = "index.html", 2000);
@@ -173,7 +173,7 @@ async function displayListings() {
 
         querySnapshot.forEach((doc) => {
             const listing = doc.data();
-            const imageUrl ="https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" || listing.imageUrl;
+            const imageUrl = "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" || listing.imageUrl;
 
             const listingCard = document.createElement("div");
             listingCard.classList.add("listing-card");
@@ -461,11 +461,11 @@ async function showListingDetails(listingId) {
     const modal = document.getElementById("listingDetailsModal");
     if (!modal) return;
 
-    document.getElementById("modalImage").src =  
-        "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" ||  listing.imageUrl;
+    document.getElementById("modalImage").src =
+        "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" || listing.imageUrl;
     document.getElementById("modalPropertyType").innerText = listing.propertyType;
     document.getElementById("modalLocation").innerText = listing.location;
-    document.getElementById("modalRent").innerText = `₹${listing.rent}/month`;
+    document.getElementById("modalRent").innerText = `${listing.rent}/month`;
     document.getElementById("modalOwner").innerText = listing.ownerName || "Unknown";
     document.getElementById("modalDescription").innerText = listing.description;
     document.getElementById("modalContact").innerText = listing.contact;

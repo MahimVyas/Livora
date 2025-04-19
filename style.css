@@ -1,4 +1,3 @@
-
 /* ✅ General Reset */
 * {
     margin: 0;
@@ -111,7 +110,7 @@ header a:hover {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
@@ -751,12 +750,12 @@ header a:hover {
     background-color: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(12px);
     position: fixed;
-    margin-top: 150px;
+    margin-top: 150px; /* This adds a large empty space above the modal */
     margin-bottom: 150px;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%); /* ✅ Perfect centering */
-    padding: 50px;
+    padding: 50px; /* This adds space inside the modal */
     border: 1px solid #888;
     width: 85%;
     max-width: 95%;
@@ -765,6 +764,16 @@ header a:hover {
     border-radius: 10px;
     color: white;
     z-index: 15;
+}
+
+/* Modal Title Styling */
+.modal-title {
+    margin-top: 0 !important; /* Remove unnecessary top margin */
+    margin-bottom: 20px; /* Optional: Add spacing below */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
 }
 
 /* Close Button */
@@ -886,3 +895,149 @@ footer {
 
     }
 }
+
+/* Payment Button Styling */
+#paymentButton {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+#paymentButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+#paymentButton:active {
+    transform: scale(0.95); /* Slightly shrink the button on click */
+}
+
+/* Improved Payment Container Styling */
+.payment-container {
+    max-width: 700px; /* Keep the maximum width */
+    width: 40%; /* Keep the width percentage */
+    margin-top: 500px; /* Keep the top margin */
+    padding: 30px; /* Increase padding for better spacing */
+    background: linear-gradient(135deg, #ffffff, #f3f3f3); /* Subtle gradient background */
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow for a modern look */
+    text-align: center; /* Center-align text */
+    border: 1px solid #ddd; /* Add a light border for definition */
+    animation: fadeIn 0.5s ease-in-out; /* Smooth fade-in animation */
+    color: black;
+}
+
+/* Center the Payment Button */
+.pay-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 12px 24px; /* Adjust padding for better size */
+    font-size: 18px; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    display: block; /* Make it a block element */
+    margin: 20px auto; /* Center horizontally and add spacing */
+    width: fit-content; /* Adjust width to fit content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.pay-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.pay-btn:active {
+    transform: scale(0.95); /* Slightly shrink the button on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+.payment-options {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.payment-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.payment-details {
+    margin-bottom: 20px;
+}
+
+.payment-details input,
+.payment-details select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Change placeholder color to black */
+#amount input::placeholder,
+#amount select::placeholder {
+    color: black; /* Set placeholder text color to black */
+}
+
+/* Styling for the Amount Field */
+#amount {
+    color: black; /* Set text color to black for visibility */
+    font-weight: bold; /* Make the text bold */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+    border: 1px solid #ccc; /* Add a subtle border */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    width: 100%; /* Ensure it spans the container */
+    font-size: 16px; /* Adjust font size for readability */
+}
+
+/* Styling for the Amount Display */
+.amount-display {
+    color: black; /* Set text color to black for visibility */
+    font-weight: bold; /* Make the text bold */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+    border: 1px solid #ccc; /* Add a subtle border */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    width: fit-content; /* Adjust width to fit content */
+    font-size: 16px; /* Adjust font size for readability */
+    display: inline-block; /* Ensure proper alignment */
+}
+
+.payment-container {
+    /* Existing styles */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+  }
+  
+  /* Optional dark mode tweak */
+  @media (prefers-color-scheme: dark) {
+    .payment-container {
+      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+      color: #f1f1f1;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    .payment-details input,
+    .payment-details select {
+      background-color: #333;
+      color: white;
+      border: 1px solid #555;
+    }
+  }

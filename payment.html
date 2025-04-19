@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Payment Page</h2>
+        <a href="explore.html" class="back-btn">Back to Listings</a>
+    </header>
+
+    <main class="payment-container">
+        <h3>Complete Your Payment</h3>
+        <form id="paymentForm" class="payment-form">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="paymentMethod" value="creditCard" checked>
+                    Credit/Debit Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="upi">
+                    UPI
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="netBanking">
+                    Net Banking
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="wallet">
+                    Wallet (e.g., Paytm, PhonePe)
+                </label>
+            </div>
+
+            <!-- Credit/Debit Card Fields -->
+            <div id="cardDetails" class="payment-details">
+                <label for="cardName">Cardholder Name:</label>
+                <input type="text" id="cardName" placeholder="Enter cardholder name" required>
+
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" placeholder="Enter card number" required maxlength="16">
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="month" id="expiryDate" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="password" id="cvv" placeholder="Enter CVV" required maxlength="3">
+            </div>
+
+            <!-- UPI Field -->
+            <div id="upiDetails" class="payment-details" style="display: none;">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" placeholder="Enter UPI ID (e.g., name@bank)">
+            </div>
+
+            <!-- Net Banking Field -->
+            <div id="netBankingDetails" class="payment-details" style="display: none;">
+                <label for="bankName">Select Bank:</label>
+                <select id="bankName">
+                    <option value="hdfc">HDFC Bank</option>
+                    <option value="icici">ICICI Bank</option>
+                    <option value="sbi">State Bank of India</option>
+                    <option value="axis">Axis Bank</option>
+                </select>
+            </div>
+
+            <!-- Wallet Field -->
+            <div id="walletDetails" class="payment-details" style="display: none;">
+                <label for="wallet">Select Wallet:</label>
+                <select id="wallet">
+                    <option value="paytm">Paytm</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="googlepay">Google Pay</option>
+                </select>
+            </div>
+
+            <label for="amount">Amount:</label>
+            <p id="amount" class="amount-display"></p>
+
+            <button type="submit" class="pay-btn">Pay Now</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Livora. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle payment fields based on selected method
+        document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
+            input.addEventListener('change', (event) => {
+                document.querySelectorAll('.payment-details').forEach((detail) => {
+                    detail.style.display = 'none';
+                });
+                const selectedMethod = event.target.value;
+                if (selectedMethod === 'creditCard') {
+                    document.getElementById('cardDetails').style.display = 'block';
+                } else if (selectedMethod === 'upi') {
+                    document.getElementById('upiDetails').style.display = 'block';
+                } else if (selectedMethod === 'netBanking') {
+                    document.getElementById('netBankingDetails').style.display = 'block';
+                } else if (selectedMethod === 'wallet') {
+                    document.getElementById('walletDetails').style.display = 'block';
+                }
+            });
+        });
+
+        // Extract the amount from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const rentAmount = urlParams.get("amount");
+
+        // Set the amount in the payment display tag
+        if (rentAmount) {
+            document.getElementById("amount").textContent = `${rentAmount}`;
+        }
+    </script>
+</body>
+</html>

@@ -70,10 +70,11 @@
 <div class="dashboard-container">
     <div id="exploreListings" class="listings-grid"></div>
 </div>
+
 <div id="listingDetailsModal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <h3>Listing Details</h3>
+        <h3 class="modal-title">Listing Details</h3>
         <img id="modalImage" src="" alt="Property Image">
         <h4 id="modalPropertyType"></h4>
         <p><strong>Location:</strong> <span id="modalLocation"></span></p>
@@ -81,8 +82,11 @@
         <p><strong>Owner:</strong> <span id="modalOwner"></span></p>
         <p><strong>Description:</strong> <span id="modalDescription"></span></p>
         <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+        <!-- Add Payment Button -->
+        <button id="paymentButton" onclick="redirectToPayment()">Proceed to Payment</button>
     </div>
 </div>
+
 </div>
 <footer>
     <div class="footer-container">
@@ -125,5 +129,11 @@
     <button id="backToTop">↑ Back to Top</button>
 
 <script src="script.js" type="module"></script>
+<script>
+    function redirectToPayment() {
+        const rentAmount = document.getElementById("modalRent").innerText; // Get the rent amount
+        window.location.href = `payment.html?amount=${encodeURIComponent(rentAmount)}`;
+    }
+</script>
 </body>
 </html>
